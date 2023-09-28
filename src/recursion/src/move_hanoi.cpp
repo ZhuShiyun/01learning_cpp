@@ -19,13 +19,15 @@
  *          将n-1个圆盘从tmp以from为中转移动到to
  *      }
  * }
-
  */
 
 #include "iostream"
 
 using namespace std;
 
+/*
+ * 还未完成这些函数
+ */
 typedef enum {X, Y, Z} HANOI;
 void PrintWelcomeInfo();
 unsigned int GetInteger();
