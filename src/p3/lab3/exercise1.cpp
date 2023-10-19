@@ -3,7 +3,7 @@
   * @file           : exercise1.cpp
   * @author         : b-zhushiyun
   * @brief          : None
-  * @attention      : Exists bug.
+  * @attention      :
   * @date           : 23-10-17
   ******************************************************************************
   */
@@ -22,25 +22,22 @@ int main()
     cout << "sizeof(direction) = " << sizeof(direction) << ",length of direction = " << strlen(direction) << endl;
     cout << "sizeof(title) = " << sizeof(title) << ",length of title = " << strlen(title) << endl;
     //Print the value and address of each element in cards and hands respectively.
+    
     cout << "cards[] = {";
-    for (int i = 0; i < sizeof(cards); i++) {
-        cout << cards[i] << ": " << &cards[i] << ", ";
+    for (int i = 0; i < sizeof(cards)/sizeof(cards[0]); i++) {
+        cout << "cards[" << i << "] = " << cards[i] << ", address: " << &cards[i];
+        if (i < sizeof(cards)/ sizeof(cards[0])-1){
+            cout << "; ";
+        }
     }
     cout << "};" << endl;
 
     cout << "hands[] = {";
-    for (int i = 0; i < sizeof(hands); i++) {
-        cout << hands[i] << ": " << &hands[i] << ", ";
+    for (int i = 0; i < sizeof(hands)/ sizeof(hands[0]); i++) {
+        cout << hands[i] << ": " << &hands[i];
+        if (i < sizeof(hands)/ sizeof(hands[0])-1) cout << ", ";
     }
     cout << "};";
-
-    for (int i = 0; i < 4; i++) {
-        cout << "cards[" << i << "] = " << cards[i] << ", address: " << &cards[i] << endl;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        cout << "hands[" << i << "] = " << hands[i] << ", address: " << &hands[i] << endl;
-    }
 
     return 0;
 }
