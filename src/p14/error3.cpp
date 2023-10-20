@@ -3,12 +3,12 @@
   * @file           : error3.cpp
   * @author         : b-zhushiyun
   * @brief          : Error handling: Solution 3: Throw exceptions(C++ feature)
-  * @attention      : None
+  * @attention      :
   * @date           : 23-10-19
   ******************************************************************************
   */
 #include "iostream"
-#include "math.h"
+#include "cmath"
 #include "cfloat"
 float ratio(float a, float b){
     if (fabs(a + b) < FLT_EPSILON)
@@ -18,11 +18,21 @@ float ratio(float a, float b){
 
 int main() {
     float a, b, result;
-    while (std::cin >> a, std::cin >> b){
-        std::cout << "Input float a and float b:" << std::endl;
-        result = ratio(a, b);
-        std::cout << "The result is: " << result << std::endl;
-    }
 
+    std::cout << "Please input two numbers: <'q' to quit> " << std::endl;
+    while (std::cin >> a, std::cin >> b){
+        {
+            try {
+                result = ratio(a, b);
+                std::cout << a << ", " << b << ": " << result << std::endl;
+            }
+            catch (const char *msg) {
+                std::cout << "Call ratio() failed." << std::endl;
+                std::cout << "I will give you another chance." << std::endl;
+            }
+        }
+        std::cout << "Please input two numbers: <'q' to quit> " << std::endl;
+    }
+    std::cout << "Bye!" << std::endl;
     return 0;
 }
