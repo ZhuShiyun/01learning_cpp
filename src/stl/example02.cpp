@@ -3,7 +3,7 @@
   * @file           : example02.cpp
   * @author         : b-zhushiyun
   * @brief          : 使用list和iterator求解约瑟夫问题
-  * @attention      : None
+  * @attention      : 小孩的编号是从0开始的。
   * @date           : 23-10-12
   ******************************************************************************
   */
