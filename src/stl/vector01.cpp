@@ -114,12 +114,20 @@ int main()
 	{
 		cout << v5[i] << " ";
 	}
+	cout << endl;
 
 	/**
 	 * @brief vector.resize(num)
 	 * 重新制定容器的长度为num,若容器变长，则以默认值填充新位置。
 	 * 如果容器变短，则末尾超出容器长度的元素被删除。
 	 */
+	v5.resize(10);
+	cout << "v5(resize):";
+	for (int i = 0; i < v5.size(); i++)
+	{
+		cout << v5[i] << " ";
+	}
+	cout << endl;
 
 	return 0;
 }
