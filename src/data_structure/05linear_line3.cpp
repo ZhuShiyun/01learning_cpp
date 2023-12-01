@@ -1,13 +1,12 @@
 /**
   ******************************************************************************
-  * @file           : linear_line.cpp
+  * @file           : 05linear_line3.cpp
   * @author         : b-zhushiyun
-  * @brief          : None
-  * @attention      : 不知道为什么只能打印到17，后面的就不打印了
-  * @date           : 23-11-30
+  * @brief          : 05linear_line2.cpp DEBUG
+  * @attention      : None
+  * @date           : 23-12-1
   ******************************************************************************
   */
-
 #include <stdio.h>
 #include <iostream>
 #include <malloc.h>
@@ -20,7 +19,11 @@ struct List {
 	int size;
 };
 
+//*****************************************************************
+//在这里定义了List的指针别名ArrayList，长度是8
 typedef struct List * ArrayList;
+//****************************************************************
+
 
 bool initList(ArrayList list){
 	list->array =(E *) malloc(sizeof(E) * list->capacity);
@@ -72,8 +75,12 @@ int findList(ArrayList list, E element){
 	return -1;
 }
 
+/*问题出在这里！ 在打印的时候，list是一个指针，长度为8，
+因此你每次只能循环前8个数字,所以要把 sizeof（list）替换为list->size */
+
 void printList(ArrayList list)
 {
+	//for (int i = 0; i < sizeof(list); i++)
 	for (int i = 0; i < list->size; i++)
 	{
 		std::cout << list->array[i];
@@ -88,7 +95,7 @@ int main()
 	if (initList(&list)) {
 		for (int i = 0;i < 30; i++)
 		{
-			insertList(&list, i*10, i + 1);
+			insertList(&list, i+10, i + 1);
 		}
 		printList(&list);
 		std::cout << list.capacity << std::endl;
@@ -98,3 +105,4 @@ int main()
 
 	return 0;
 }
+
