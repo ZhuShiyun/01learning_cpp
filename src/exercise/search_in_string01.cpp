@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file           : search_in_string.cpp
   * @author         : b-zhushiyun
-  * @brief          : 字符串匹配
+  * @brief          : 暴力的字符串匹配
   * @attention      : None
   * @date           : 23-12-7
   ******************************************************************************
@@ -23,17 +23,26 @@ int main()
 
 	int pos = 0;
 
+	string compare;
+
 	for (int i = 0; i < input_string.size(); i++)
 	{
-		for (int j = 0; j < search_string.size(); j++)
-		{
-			if (input_string[i] == search_string[j])
+		if (input_string[i] == search_string[0]){
+			for (int j = 0; j < search_string.size(); j++)
 			{
+				compare += input_string[i+j];
+			}
+			// cout << "compare = " << compare << endl;
+			if (compare == search_string){
 				pos = i;
+				break;
 			} else {
 				pos = -1;
 			}
+			compare = "";
+
 		}
+
 	}
 
 	if (pos != -1)
